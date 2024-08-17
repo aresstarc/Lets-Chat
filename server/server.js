@@ -5,8 +5,9 @@ import authRoutes from "./routes/authRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import mongoose from "mongoose"
+import { app, server } from "./socket/socket.js"
 
-const app = express()
+
 dotenv.config()
 
 app.use(express.json())
@@ -22,7 +23,7 @@ db.once('open', ()=>{
 })
 
 
-app.listen(PORT, ()=>{
+server.listen(PORT, ()=>{
     console.log(`connected to port ${PORT}`)
 })
 
